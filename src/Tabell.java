@@ -1,6 +1,12 @@
 public class Tabell {
+
     public static int maks(int[] a, int fra, int til)  // a er en heltallstabell
     {
+        if (fra < 0 || til > a.length || fra >= til)
+        {
+            throw new IllegalArgumentException("Illegalt intervall!");
+        }
+
         int funnetmaks = a[fra];
         int indeks = fra;
 
@@ -12,10 +18,18 @@ public class Tabell {
         }
         return indeks;
     } // maks
-
+    public static int maks(int[] a)  // bruker hele tabellen
+    {
+        return maks(a,0,a.length);     // kaller metoden over
+    }
 
     public static int min(int[] a, int fra, int til)  // a er en heltallstabell
     {
+        if (fra < 0 || til > a.length || fra >= til)
+        {
+            throw new IllegalArgumentException("Illegalt intervall!");
+        }
+
         int funnetmin = a[fra];
         int indeks = fra;
 
@@ -27,7 +41,10 @@ public class Tabell {
         }
         return indeks;
     } // min
-
+    public static int min(int[] a)  // bruker hele tabellen
+    {
+        return min(a,0,a.length);     // kaller metoden over
+    }
     public static int[] bytt(int[] a, int x, int y){ //Bytter om to gitte indekser i et heltallsarray
         int temp = a[x];
         a[x] = a[y];
